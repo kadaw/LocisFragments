@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 public class RoomsViewTask extends AsyncTask {
-    RoomsFragment activity;
+    RoomsFragment fragment;
     String token;
     List<ItemRoom> rooms;
 
@@ -31,7 +31,7 @@ public class RoomsViewTask extends AsyncTask {
 
 
     protected Object doInBackground(Object[] params) {
-        activity = (RoomsFragment) params[0];
+        fragment = (RoomsFragment)params[0];
         try {
             URL url = new URL("http://locis.lod-misis.ru/user/rooms");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -57,8 +57,8 @@ public class RoomsViewTask extends AsyncTask {
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
         if (rooms!=null)
-            activity.onJSONParsed(rooms);
-        else activity.onJSONParsed(rooms=new ArrayList<ItemRoom>());
+            fragment.onJSONParsed(rooms);
+        else fragment.onJSONParsed(rooms=new ArrayList<ItemRoom>());
     }
 
 }

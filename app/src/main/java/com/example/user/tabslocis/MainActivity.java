@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         bindViews();
     }
+
     private void bindViews(){
         loginButton = (Button) findViewById(R.id.login_button_ma);
         registrationButton = (Button) findViewById(R.id.registration_button_ma);

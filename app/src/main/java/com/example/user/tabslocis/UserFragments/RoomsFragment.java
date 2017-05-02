@@ -38,8 +38,8 @@ public class RoomsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      // final RoomsViewTask api = new RoomsViewTask(token);
-       //api.execute();
+      final RoomsViewTask api = new RoomsViewTask(token);
+      // api.execute(this);
        // new RoomsViewTask(token).execute();
         View rootView = inflater.inflate(R.layout.rooms_tab, container, false);
         listView = (ListView) rootView.findViewById(R.id.lv_rooms);
