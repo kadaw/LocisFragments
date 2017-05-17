@@ -7,7 +7,7 @@
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/primary_dark_material_light"
+        android:textColor="@color/background_material_dark"
 
         android:id="@+id/sender_name_invite_tv"
         android:layout_below="@+id/room_name_invite_tv"
@@ -34,7 +34,7 @@
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/primary_dark_material_light"
+        android:textColor="@color/background_material_dark"
         android:textStyle="bold"
         android:id="@+id/room_name_invite_tv"
         android:layout_marginStart="32dp"

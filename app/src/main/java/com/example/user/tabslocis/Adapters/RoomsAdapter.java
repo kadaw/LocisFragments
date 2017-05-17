@@ -9,8 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.user.tabslocis.Items.ItemRoom;
+import com.example.user.tabslocis.Items.ItemSong;
 import com.example.user.tabslocis.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +32,9 @@ public class RoomsAdapter extends ArrayAdapter{
         this.token = token;
         roomsInList = objects;
     }
+
+
+
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {

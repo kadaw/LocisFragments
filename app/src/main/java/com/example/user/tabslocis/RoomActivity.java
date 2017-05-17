@@ -1,40 +1,56 @@
-package com.example.user.tabslocis.UserFragments;
+package com.example.user.tabslocis;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.user.tabslocis.Adapters.RoomsAdapter;
 import com.example.user.tabslocis.Adapters.SongsAdapter;
-import com.example.user.tabslocis.Items.ItemRoom;
+import com.example.user.tabslocis.Adapters.SongsAdapterForActivity;
 import com.example.user.tabslocis.Items.ItemSong;
-import com.example.user.tabslocis.R;
-import com.example.user.tabslocis.RoomActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MusicFragment extends Fragment {
+public class RoomActivity extends AppCompatActivity {
+    private ViewPager mViewPager;
     ListView listView;
     ArrayList<ItemSong> songsList;
     String token;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.music_tab, container, false);
-        listView = (ListView) rootView.findViewById(R.id.lv_music);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_room);
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        Intent intent = getIntent();
+        String roomName = intent.getStringExtra("RoomName");
+    setTitle(roomName);
+
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         initListView(songsList);
-        return rootView;
+
     }
-    private void initListView(final List<ItemSong> songs) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void initListView(List<ItemSong> songs) {
         songsList = new ArrayList<>();
         // roomsList.addAll(rooms);
         songsList.add(new ItemSong("Egor Kreed","Ya reper","3:18"));
@@ -45,7 +61,8 @@ public class MusicFragment extends Fragment {
 
 
 
-        SongsAdapter songsAdapter = new SongsAdapter(getActivity(), 0, songsList, token);
+        SongsAdapterForActivity songsAdapter = new SongsAdapterForActivity(this, 0, songsList, token);
+        listView = (ListView) findViewById(R.id.lv_music_in_room);
         listView.setAdapter(songsAdapter);
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -58,14 +75,8 @@ public class MusicFragment extends Fragment {
 
             }
         });
-        listView.setClickable(true);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
 
 
-            }
-        });
 
     }
 }
