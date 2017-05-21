@@ -2,6 +2,8 @@ package com.example.user.tabslocis.Api;
 
 import android.os.AsyncTask;
 import android.support.test.espresso.core.deps.guava.io.CharStreams;
+import android.view.View;
+import android.widget.ListView;
 
 
 import com.example.user.tabslocis.Items.ItemRoom;
@@ -23,10 +25,12 @@ import java.util.List;
 public class RoomsViewTask extends AsyncTask {
     RoomsFragment fragment;
     String token;
+    ListView listView;
     List<ItemRoom> rooms;
 
     public RoomsViewTask(String token){
         this.token = token;
+
     }
 
 
@@ -56,6 +60,7 @@ public class RoomsViewTask extends AsyncTask {
 
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
+
         if (rooms!=null)
             fragment.onJSONParsed(rooms);
         else fragment.onJSONParsed(rooms=new ArrayList<ItemRoom>());

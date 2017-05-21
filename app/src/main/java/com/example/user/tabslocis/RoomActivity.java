@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.user.tabslocis.Adapters.SongsAdapter;
 import com.example.user.tabslocis.Adapters.SongsAdapterForActivity;
@@ -39,12 +40,18 @@ public class RoomActivity extends AppCompatActivity {
         initListView(songsList);
 
     }
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
+            case R.id.add_mi:
+                Toast.makeText(RoomActivity.this, "Add Track", Toast.LENGTH_LONG).show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);

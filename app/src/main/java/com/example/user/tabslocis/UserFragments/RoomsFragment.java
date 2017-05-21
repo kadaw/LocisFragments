@@ -51,7 +51,8 @@ public class RoomsFragment extends Fragment {
                              Bundle savedInstanceState) {
 //        final RoomsViewTask api = new RoomsViewTask(token);
 //        api.execute(this);
-        // new RoomsViewTask(token).execute();
+       // new RoomsViewTask(token).execute();
+
         View rootView = inflater.inflate(R.layout.rooms_tab, container, false);
         listView = (ListView) rootView.findViewById(R.id.lv_rooms);
         initListView(roomsList);
@@ -62,7 +63,7 @@ public class RoomsFragment extends Fragment {
 
     private void initListView(final List<ItemRoom> rooms) {
         roomsList = new ArrayList<>();
-        // roomsList.addAll(rooms);
+    //     roomsList.addAll(rooms);
         roomsList.add(new ItemRoom("Room huy"));
         roomsList.add(new ItemRoom("Room xyu"));
         roomsList.add(new ItemRoom("Room hui"));
